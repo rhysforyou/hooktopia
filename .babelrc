@@ -1,0 +1,17 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "useBuiltIns": "usage",
+        "targets": ["> 2%", "not dead", "not ie < 11"]
+      }
+    ],
+    "@babel/react"
+  ],
+  "plugins": [
+    "@babel/proposal-object-rest-spread",
+    "@babel/proposal-class-properties",
+    "@babel/syntax-dynamic-import"
+  ]
+}
