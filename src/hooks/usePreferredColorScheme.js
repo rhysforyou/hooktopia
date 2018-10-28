@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export default function usePreferredColorScheme(defaultColorScheme = 'light') {
-  const [colorScheme, setColorScheme] = useState(defaultColorScheme);
+  const [matches, setMatches] = useState(defaultColorScheme == 'dark');
 
   useEffect(() => {
     const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
@@ -12,15 +12,11 @@ export default function usePreferredColorScheme(defaultColorScheme = 'light') {
         return;
       }
 
-      if (mediaQueryList.matches) {
-        setColorScheme(true);
-      } else {
-        setColorScheme(false);
-      }
+      setMatches(mediaQueryList.matches);
     };
 
     mediaQueryList.addListener(listener);
-    setColorScheme(mediaQueryList.matches);
+    setMatches(mediaQueryList.matches);
 
     return () => {
       active = false;
@@ -28,5 +24,5 @@ export default function usePreferredColorScheme(defaultColorScheme = 'light') {
     };
   }, []);
 
-  return colorScheme ? 'dark' : 'light';
+  return matches ? 'dark' : 'light';
 }
