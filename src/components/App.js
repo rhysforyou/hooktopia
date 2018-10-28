@@ -1,21 +1,8 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import Counter from './Counter';
+import { DarkBaseline, LightBaseline } from './Baseline';
 import usePreferredColorScheme from '../hooks/usePreferredColorScheme';
-
-const DarkBaseline = createGlobalStyle`
-  html, body, :root {
-    background-color: #303030;
-    color: #fff;
-  }
-`;
-
-const LightBaseline = createGlobalStyle`
-  html, body, :root {
-    background-color: #fafafa;
-    color: rgba(0, 0, 0, 0.87);
-  }
-`;
 
 const Container = styled.main`
   margin: auto;

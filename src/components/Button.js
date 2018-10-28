@@ -1,12 +1,6 @@
-.count {
-  display: inline-block;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  min-width: 4rem;
-  text-align: center;
-}
+import styled from 'styled-components';
 
-.button {
+const Button = styled.button`
   appearance: none;
   color: palevioletred;
   background: none;
@@ -22,8 +16,10 @@
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   letter-spacing: 0.02857em;
-}
 
-.button:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export default Button;
