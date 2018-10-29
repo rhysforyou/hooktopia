@@ -1,18 +1,37 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState, useMemo } from 'react'
 import { Store } from '../lib/storeContext'
 
-export default function useStoreConnector(mapStateToProps, mapDispatchToProps) {
-  const store = useContext(Store)
-  const [state, setState] = useState(store.getState())
-
-  useEffect(() => {
-    return store.subscribe(() => {
-      setState(store.getState())
-    })
+export default function createReduxHook(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps = (stateProps, dispatchProps) => ({
+    ...stateProps,
+    ...dispatchProps
   })
+) {
+  return otherProps => {
+    const store = useContext(Store)
+    const [state, setState] = useState(store.getState())
 
-  const stateProps = mapStateToProps(state)
-  const dispatchProps = mapDispatchToProps(store.dispatch)
+    useEffect(() => {
+      return store.subscribe(() => {
+        setState(store.getState())
+      })
+    })
 
-  return { ...stateProps, ...dispatchProps }
+    const stateProps = useMemo(() => mapStateToProps(state, otherProps), [
+      state,
+      otherProps
+    ])
+
+    const dispatchProps = useMemo(
+      () => mapDispatchToProps(store.dispatch, otherProps),
+      [store, otherProps]
+    )
+
+    return useMemo(() => mergeProps(stateProps, dispatchProps), [
+      stateProps,
+      dispatchProps
+    ])
+  }
 }
