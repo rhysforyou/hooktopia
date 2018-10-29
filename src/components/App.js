@@ -2,6 +2,7 @@ import React, { createContext } from 'react'
 import styled from 'styled-components'
 import Counter from './Counter'
 import ReduxCounter from './ReduxCounter'
+import LocalStorageDemo from './LocalStorageDemo'
 import { DarkBaseline, LightBaseline } from './Baseline'
 import usePreferredColorScheme from '../hooks/usePreferredColorScheme'
 import { Store } from '../lib/storeContext'
@@ -23,6 +24,7 @@ const App = () => {
         <h1>Hello, React 16.7 (with hooks!)</h1>
         <Counter />
         <ReduxCounter />
+        <LocalStorageDemo />
       </Container>
     </Store.Provider>
   )

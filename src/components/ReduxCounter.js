@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 import { incrementCounter, decrementCounter } from '../actions'
-import createReduxHook from '../hooks/useStoreConnector'
+import createReduxHook from '../hooks/createReduxHook'
 
 const Count = styled.span`
   display: inline-block;
