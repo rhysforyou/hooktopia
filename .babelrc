@@ -7,7 +7,8 @@
         "targets": ["> 2%", "not dead", "not ie < 11"]
       }
     ],
-    "@babel/react"
+    "@babel/react",
+    "@babel/typescript"
   ],
   "plugins": [
     "@babel/proposal-object-rest-spread",

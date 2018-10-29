@@ -10,10 +10,13 @@ exports.default = (_, argv) => ({
     path: path.resolve(__dirname, 'dist/'),
     filename: 'srcipts/[name].js'
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
+  },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
