@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import Button from './Button';
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import Button from './Button'
 
 const Count = styled.span`
   display: inline-block;
@@ -8,14 +8,14 @@ const Count = styled.span`
   padding: 0.5rem 1rem;
   min-width: 4rem;
   text-align: center;
-`;
+`
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
-    document.title = `useThePlatform(${count})`;
-  });
+    document.title = `useThePlatform(${count})`
+  })
 
   return (
     <div>
@@ -23,7 +23,7 @@ const Counter = () => {
       <Count>{count}</Count>
       <Button onClick={() => setCount(count + 1)}>Increment</Button>
     </div>
-  );
-};
+  )
+}
 
-export default Counter;
+export default Counter

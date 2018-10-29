@@ -1,28 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 export default function usePreferredColorScheme(defaultColorScheme = 'light') {
-  const [matches, setMatches] = useState(defaultColorScheme == 'dark');
+  const [matches, setMatches] = useState(defaultColorScheme == 'dark')
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-    let active = true;
+    const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+    let active = true
 
     const listener = () => {
       if (!active) {
-        return;
+        return
       }
 
-      setMatches(mediaQueryList.matches);
-    };
+      setMatches(mediaQueryList.matches)
+    }
 
-    mediaQueryList.addListener(listener);
-    setMatches(mediaQueryList.matches);
+    mediaQueryList.addListener(listener)
+    setMatches(mediaQueryList.matches)
 
     return () => {
-      active = false;
-      mediaQueryList.removeListener(listener);
-    };
-  }, []);
+      active = false
+      mediaQueryList.removeListener(listener)
+    }
+  }, [])
 
-  return matches ? 'dark' : 'light';
+  return matches ? 'dark' : 'light'
 }

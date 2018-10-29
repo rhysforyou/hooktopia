@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Button = styled.button`
   appearance: none;
@@ -20,6 +20,6 @@ const Button = styled.button`
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
-`;
+`
 
-export default Button;
+export default Button

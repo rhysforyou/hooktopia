@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components'
 
 const baseStyles = css`
   width: 100%;
@@ -8,7 +8,7 @@ const baseStyles = css`
   border: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-`;
+`
 
 export const DarkBaseline = createGlobalStyle`
 html, body, :root {
@@ -17,7 +17,7 @@ html, body, :root {
 
   ${baseStyles}
 }
-`;
+`
 
 export const LightBaseline = createGlobalStyle`
 html, body, :root {
@@ -26,4 +26,4 @@ html, body, :root {
 
   ${baseStyles}
 }
-`;
+`

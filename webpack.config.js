@@ -1,6 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 exports.default = (_, argv) => ({
   devtool:
@@ -47,4 +47,4 @@ exports.default = (_, argv) => ({
     port: 3000,
     historyApiFallback: true
   }
-});
+})
