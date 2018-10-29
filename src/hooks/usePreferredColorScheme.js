@@ -5,13 +5,7 @@ export default function usePreferredColorScheme(defaultColorScheme = 'light') {
 
   useEffect(() => {
     const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-    let active = true;
-
     const listener = () => {
-      if (!active) {
-        return;
-      }
-
       setMatches(mediaQueryList.matches);
     };
 
@@ -19,7 +13,6 @@ export default function usePreferredColorScheme(defaultColorScheme = 'light') {
     setMatches(mediaQueryList.matches);
 
     return () => {
-      active = false;
       mediaQueryList.removeListener(listener);
     };
   }, []);
